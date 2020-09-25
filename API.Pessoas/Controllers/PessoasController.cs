@@ -141,5 +141,22 @@ namespace API.Pessoas.Controllers
         {
             return _context.Pessoa.Any(e => e.Id == id);
         }
+
+        public class PessoaResponse
+        {
+            public int Id { get; set; }
+            public String Nome { get; set; }
+            public String Sobrenome { get; set; }
+            public String Email { get; set; }
+            public String Telefone { get; set; }
+
+            public DateTime DataDeNascimento { get; set; }
+
+            public String Foto { get; set; }
+        }
+        public class PostAmigosRequest
+        {
+            public int[] Ids { get; set; }
+        }
     }
 }

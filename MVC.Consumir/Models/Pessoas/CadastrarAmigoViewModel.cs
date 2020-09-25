@@ -7,5 +7,7 @@ namespace MVC.Consumir.Models.Pessoas
 {
     public class CadastrarAmigoViewModel
     {
+        public int PessoaId { get; set; }
+        public int[] AmigosIds { get; set; }
     }
 }

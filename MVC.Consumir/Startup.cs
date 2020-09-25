@@ -2,12 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Paises.Context;
+using API.Pessoas.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC.Consumir.ApiServices;
+using WebApp.ApiServices;
 
 namespace MVC.Consumir
 {
@@ -23,6 +28,15 @@ namespace MVC.Consumir
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IEstadoApi, EstadoApi>();
+            services.AddScoped<IPaisApi, PaisApi>();
+            services.AddScoped<IPessoaApi, PessoaApi>();
+
+            services.AddDbContext<PaisesContext>(options =>
+                 options.UseSqlServer(Configuration.GetConnectionString("AtAzure")));
+            services.AddDbContext<PessoasContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AtAzure")));
+            
             services.AddControllersWithViews();
         }
 

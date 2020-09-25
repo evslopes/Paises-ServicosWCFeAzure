@@ -20,7 +20,7 @@ namespace MVC.Consumir.ApiServices
             this.paisApi = paisApi;
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            httpClient.BaseAddress = new Uri("https://localhost:44337/");
+            httpClient.BaseAddress = new Uri("https://localhost:44348/");
         }
         public async Task<CriarEstadoViewModel> PostEstadoAsync(CriarEstadoViewModel estadoViewModel)
         {
