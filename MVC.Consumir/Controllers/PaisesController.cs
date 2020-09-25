@@ -135,7 +135,7 @@ namespace MVC.Consumir.Controllers
         private string UploadFotoPais(IFormFile foto)
         {
             var reader = foto.OpenReadStream();
-            var cloudStorageAccount = CloudStorageAccount.Parse(@"DefaultEndpointsProtocol=https;AccountName=atnelson;AccountKey=0r7JESt9kWCq4GawzCn5GuzCSHppEnoq3arb/Kp0v+Eo5vM94Slsc74L5JNnQBNQnpEuaLyN2Z0SwZl9VPoPzg==;EndpointSuffix=core.windows.net");
+            var cloudStorageAccount = CloudStorageAccount.Parse(@"BlobEndpoint=https://atazureelvis.blob.core.windows.net/;QueueEndpoint=https://atazureelvis.queue.core.windows.net/;FileEndpoint=https://atazureelvis.file.core.windows.net/;TableEndpoint=https://atazureelvis.table.core.windows.net/;SharedAccessSignature=sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-09-24T07:10:23Z&st=2020-09-24T23:01:05Z&spr=https,http&sig=tDtPlxQRFgZOWBWjly3qUtYM1QjNfNQlJEMOX5nwruw%3D");
             var blobClient = cloudStorageAccount.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference("fotos-paises");
             container.CreateIfNotExists();

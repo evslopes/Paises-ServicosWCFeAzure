@@ -22,7 +22,7 @@ namespace MVC.Consumir.ApiServices
             this._paisApi = paisApi;
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            httpClient.BaseAddress = new Uri("https://localhost:44396/");
+            httpClient.BaseAddress = new Uri("https://localhost:44336/");
         }
 
         public async Task<List<PessoaViewModel>> GetAmigos(int id)
