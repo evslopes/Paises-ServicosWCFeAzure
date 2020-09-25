@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace API.Paises.Context
 {
-    public class WebApiPaisesContext : DbContext
+    public class PaisesContext : DbContext
     {
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Estado> Estados { get; set; }
 
-        public WebApiPaisesContext(DbContextOptions<WebApiPaisesContext> options)
+        public PaisesContext(DbContextOptions<PaisesContext> options)
             : base(options)
         {
         }
@@ -21,14 +21,14 @@ namespace API.Paises.Context
 
             base.OnModelCreating(modelBuilder);
         }
-        public class WebApiPaisesContextFactory : IDesignTimeDbContextFactory<WebApiPaisesContext>
+        public class WebApiPaisesContextFactory : IDesignTimeDbContextFactory<PaisesContext>
         {
-            public WebApiPaisesContext CreateDbContext(string[] args)
+            public PaisesContext CreateDbContext(string[] args)
             {
-                var optionsBuilder = new DbContextOptionsBuilder<WebApiPaisesContext>();
+                var optionsBuilder = new DbContextOptionsBuilder<PaisesContext>();
                 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AtAzure;Trusted_Connection=True;MultipleActiveResultSets=true");
 
-                return new WebApiPaisesContext(optionsBuilder.Options);
+                return new PaisesContext(optionsBuilder.Options);
 
             }
         }

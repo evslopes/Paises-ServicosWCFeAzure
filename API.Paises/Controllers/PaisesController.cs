@@ -12,9 +12,9 @@ namespace WebApiPaises.Controllers
     [ApiController]
     public class PaisesController : ControllerBase
     {
-        private readonly WebApiPaisesContext _context;
+        private readonly PaisesContext _context;
 
-        public PaisesController(WebApiPaisesContext context)
+        public PaisesController(PaisesContext context)
         {
             _context = context;
         }
